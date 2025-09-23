@@ -3,9 +3,7 @@
 <suite name="Nopcommerce Automation Test" verbose="1" >
     <test name="Run on Firefox" >
         <classes>
-            <class name="com.nopcommerce.user.Level_02_InitBasPage_I" />
-            <class name="com.nopcommerce.user.Level_02_BasPage_Static_II"/>
-            <class name="com.nopcommerce.user.Level_02_BasPage_Extends_III"/>
+            <class name="com.nopcommerce.user.Level_03_Page_Object" />
         </classes>
     </test>
 
