@@ -7,21 +7,23 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
-import pageObjects.*;
-import pageObjects.user.UserCustomerInfoPO;
-import pageObjects.user.UserHomePO;
-import pageObjects.user.UserLoginPO;
-import pageObjects.user.UserRegisterPO;
+import pageObjects.PageGenerate;
+import pageObjects.user.*;
 
 import java.time.Duration;
 
-public class Level_05_Page_Generate extends BaseTest {
+public class Level_08_Dynamic_Locator_SideBar extends BaseTest {
     private WebDriver driver;
     private String firstName, lastName, emailAddress, company, password;
     private UserHomePO homePage;
     private UserRegisterPO registerPage;
     private UserLoginPO loginPage;
     private UserCustomerInfoPO customerInfoPage;
+    private UserAddressesPO addressesPage;
+    private UserMyProductReviewPO myProductReviewPage;
+    private UserOrderPO orderPage;
+    private UserRewardPointPO rewardPointPage;
+
     @Parameters("browser")
     @BeforeClass
     public void beforeClass(String browserName) {
@@ -53,7 +55,7 @@ public class Level_05_Page_Generate extends BaseTest {
 
     @Test
     public void TC_02_Login() {
-        loginPage =  homePage.clickToLoginPage();
+        loginPage = homePage.clickToLoginPage();
         loginPage.enterEmailAddress(emailAddress);
         loginPage.enterPassword(password);
         loginPage.clickToButtonLogin();
@@ -67,6 +69,17 @@ public class Level_05_Page_Generate extends BaseTest {
         Assert.assertEquals(customerInfoPage.getTextLastNameValue(), lastName);
         Assert.assertEquals(customerInfoPage.getTextEmailValue(), emailAddress);
         Assert.assertEquals(customerInfoPage.getTextCompanyValue(), company);
+    }
+
+    @Test
+    public void TC_04_SwitchPageObject() {
+        customerInfoPage = PageGenerate.getCustomerInfoPage(driver);
+        customerInfoPage.openMenuSideBar("Addresses");
+        addressesPage = PageGenerate.getAddressesPage(driver);
+        addressesPage.openMenuSideBar("Orders");
+        orderPage = PageGenerate.getOrderPage(driver);
+        addressesPage.openMenuSideBar("Reward points");
+        rewardPointPage = PageGenerate.getRewardPage(driver);
     }
 
     @AfterClass

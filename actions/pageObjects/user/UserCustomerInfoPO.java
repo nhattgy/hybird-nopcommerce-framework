@@ -1,13 +1,13 @@
-package pageObjects;
+package pageObjects.user;
 
-import commons.BasePage;
 import org.openqa.selenium.WebDriver;
-import pageUIs.CustomerInfoPageUI;
+import UserPageUIs.CustomerInfoPageUI;
 
-public class CustomerInfoPageObject extends BasePage {
+public class UserCustomerInfoPO extends UserSidebarPO {
     private WebDriver driver;
 
-    public CustomerInfoPageObject(WebDriver driver) {
+    public UserCustomerInfoPO(WebDriver driver) {
+        super(driver);
         this.driver = driver;
     }
 
@@ -35,4 +35,7 @@ public class CustomerInfoPageObject extends BasePage {
         waitForElementVisible(driver, CustomerInfoPageUI.COMPANY_TEXTBOX);
         return getAttributeValue(driver, CustomerInfoPageUI.COMPANY_TEXTBOX, "value");
     }
+
+
+
 }
