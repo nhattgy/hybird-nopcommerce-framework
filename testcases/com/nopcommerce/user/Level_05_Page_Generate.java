@@ -7,11 +7,11 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
-import pageObjects.*;
-import pageObjects.user.UserCustomerInfoPO;
-import pageObjects.user.UserHomePO;
-import pageObjects.user.UserLoginPO;
-import pageObjects.user.UserRegisterPO;
+import pageObjects.noCommerce.PageGenerate;
+import pageObjects.noCommerce.user.UserCustomerInfoPO;
+import pageObjects.noCommerce.user.UserHomePO;
+import pageObjects.noCommerce.user.UserLoginPO;
+import pageObjects.noCommerce.user.UserRegisterPO;
 
 import java.time.Duration;
 
@@ -22,10 +22,10 @@ public class Level_05_Page_Generate extends BaseTest {
     private UserRegisterPO registerPage;
     private UserLoginPO loginPage;
     private UserCustomerInfoPO customerInfoPage;
-    @Parameters("browser")
+    @Parameters({"browser", "url"})
     @BeforeClass
-    public void beforeClass(String browserName) {
-        driver = getMultipleBrowser(browserName);
+    public void beforeClass(String browserName, String url) {
+        driver = getMultipleBrowser(browserName, url);
         homePage = PageGenerate.getHomePage(driver);
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));

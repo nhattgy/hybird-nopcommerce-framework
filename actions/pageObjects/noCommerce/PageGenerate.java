@@ -1,9 +1,9 @@
-package pageObjects;
+package pageObjects.noCommerce;
 
 import org.openqa.selenium.WebDriver;
-import pageObjects.admin.AdminDasboardPagePO;
-import pageObjects.admin.AdminLoginPagePO;
-import pageObjects.user.*;
+import pageObjects.noCommerce.admin.AdminDasboardPagePO;
+import pageObjects.noCommerce.admin.AdminLoginPagePO;
+import pageObjects.noCommerce.user.*;
 
 public class PageGenerate {
     public static UserHomePO getHomePage(WebDriver driver) {

@@ -1,0 +1,11 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+
+<suite name="Nopcommerce Automation Test" verbose="1" >
+    <parameter name="url" value="https://www.jqueryscript.net/demo/CRUD-Data-Grid-Plugin-jQuery-Quickgrid/"/>
+    <test name="Run on Chrome" >
+        <parameter name="browser" value="chrome"/>
+        <classes>
+            <class name="com.nopcommerce.user.Level_09_Jquery_Data_Table" />
+        </classes>
+    </test>
+</suite>

@@ -1,6 +1,6 @@
-package pageObjects.admin;
+package pageObjects.noCommerce.admin;
 
-import AdminPageUI.AdminDasboardPageUI;
+import noCommerce.AdminPageUI.AdminDasboardPageUI;
 import commons.BasePage;
 import org.openqa.selenium.WebDriver;
 

@@ -268,7 +268,10 @@ public class BasePage {
         WebElement element = getElement(driver, locator);
         new Actions(driver).sendKeys(element, keys).perform();
     }
-
+    public void sendKeyboardToElement(WebDriver driver, String locator, Keys keys, String... restParameter) {
+        WebElement element = getElement(driver, castParameter(locator, restParameter));
+        new Actions(driver).sendKeys(element, keys).perform();
+    }
     public void hightlightElement(WebDriver driver, String locator) {
         WebElement element = getElement(driver, locator);
         String originalStyle = element.getAttribute("style");

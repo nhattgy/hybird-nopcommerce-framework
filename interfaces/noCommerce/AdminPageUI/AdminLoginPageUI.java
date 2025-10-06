@@ -1,4 +1,4 @@
-package AdminPageUI;
+package noCommerce.AdminPageUI;
 
 public class AdminLoginPageUI {
     public static final String INPUT_EMAIL = "css=input[id = 'Email']";

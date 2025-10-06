@@ -1,4 +1,4 @@
-package UserPageUIs;
+package noCommerce.UserPageUIs;
 
 public class HomePageUI {
 

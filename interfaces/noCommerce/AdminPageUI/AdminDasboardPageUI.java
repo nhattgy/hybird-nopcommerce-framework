@@ -1,4 +1,4 @@
-package AdminPageUI;
+package noCommerce.AdminPageUI;
 
 public class AdminDasboardPageUI {
     public static final String SIDEBAR_RIGHT = "xpath=//a[@id = 'nopSideBarPusher']";

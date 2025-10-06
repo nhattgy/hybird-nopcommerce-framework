@@ -7,8 +7,8 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
-import pageObjects.*;
-import pageObjects.user.*;
+import pageObjects.noCommerce.PageGenerate;
+import pageObjects.noCommerce.user.*;
 
 import java.time.Duration;
 
@@ -23,10 +23,10 @@ public class Level_06_Page_Switch_Object extends BaseTest {
     private UserMyProductReviewPO myProductReviewPage;
     private UserOrderPO orderPage;
     private UserRewardPointPO rewardPointPage;
-    @Parameters("browser")
+    @Parameters({"browser", "url"})
     @BeforeClass
-    public void beforeClass(String browserName) {
-        driver = getMultipleBrowser(browserName);
+    public void beforeClass(String browserName, String url) {
+        driver = getMultipleBrowser(browserName, url);
         homePage = PageGenerate.getHomePage(driver);
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));

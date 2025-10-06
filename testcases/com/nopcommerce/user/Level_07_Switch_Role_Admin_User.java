@@ -7,10 +7,10 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
-import pageObjects.PageGenerate;
-import pageObjects.admin.AdminDasboardPagePO;
-import pageObjects.admin.AdminLoginPagePO;
-import pageObjects.user.*;
+import pageObjects.noCommerce.PageGenerate;
+import pageObjects.noCommerce.admin.AdminDasboardPagePO;
+import pageObjects.noCommerce.admin.AdminLoginPagePO;
+import pageObjects.noCommerce.user.*;
 
 import java.time.Duration;
 
@@ -18,12 +18,12 @@ public class Level_07_Switch_Role_Admin_User extends BaseTest {
     private WebDriver driver;
 
     private String urlUser, urlAdmin;
-    @Parameters({"browser", "userUrl","adminUrl"})
+    @Parameters({"browser", "userUrl","adminUrl", "url"})
     @BeforeClass
-    public void beforeClass(String browserName, String urlUser, String urlAdmin) {
+    public void beforeClass(String browserName, String urlUser, String urlAdmin, String url) {
         this.urlUser = urlUser;
         this.urlAdmin = urlAdmin;
-        driver = getMultipleBrowser(browserName);
+        driver = getMultipleBrowser(browserName, url);
         homePage = PageGenerate.getHomePage(driver);
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));

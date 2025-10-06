@@ -1,9 +1,9 @@
-package pageObjects.user;
+package pageObjects.noCommerce.user;
 
 import commons.BasePage;
 import org.openqa.selenium.WebDriver;
-import pageObjects.PageGenerate;
-import UserPageUIs.HomePageUI;
+import pageObjects.noCommerce.PageGenerate;
+import noCommerce.UserPageUIs.HomePageUI;
 
 public class UserHomePO extends BasePage {
     private WebDriver driver;

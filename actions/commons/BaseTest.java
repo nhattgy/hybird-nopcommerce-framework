@@ -11,7 +11,7 @@ import java.util.Random;
 
 public class BaseTest {
     private WebDriver driver;
-    public WebDriver getMultipleBrowser(String browserName){
+    public WebDriver getMultipleBrowser(String browserName, String url){
         GetBrowserName getBrowserName = GetBrowserName.valueOf(browserName.toUpperCase());
         switch (getBrowserName){
             case FIREFOX:
@@ -29,7 +29,7 @@ public class BaseTest {
             default:
                 throw new RuntimeException("No Browser");
         }
-        driver.get("https://demo.nopcommerce.com/");
+        driver.get(url);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
         return driver;
     }
