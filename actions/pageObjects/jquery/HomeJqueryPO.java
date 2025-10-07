@@ -37,4 +37,10 @@ public class HomeJqueryPO extends BasePage {
         waitForElementClickable(driver,HomeJqueryUI.REMOVE_RESULT, nameRemove);
         clickToElement(driver, HomeJqueryUI.REMOVE_RESULT, nameRemove);
     }
+
+
+    public void editHomePage(String nameEdit) {
+        waitForElementClickable(driver, HomeJqueryUI.EDIT_RESULT, nameEdit);
+        clickToElement(driver, HomeJqueryUI.EDIT_RESULT, nameEdit);
+    }
 }

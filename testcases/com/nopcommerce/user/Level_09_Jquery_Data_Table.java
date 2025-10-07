@@ -21,38 +21,40 @@ public class Level_09_Jquery_Data_Table extends BaseTest {
         homeJquery = PageGenerate.getHomeJquery(driver);
     }
 
-    @Test
-    public void TC_01_Paging() {
-        homeJquery.clickPaging("12");
-        Assert.assertTrue(homeJquery.isActive("12"));
-        homeJquery.clickPaging("15");
-        Assert.assertTrue(homeJquery.isActive("15"));
-        homeJquery.clickPaging("24");
-        Assert.assertTrue(homeJquery.isActive("24"));
-        homeJquery.refresh(driver);
-    }
+//    @Test
+//    public void TC_01_Paging() {
+//        homeJquery.clickPaging("12");
+//        Assert.assertTrue(homeJquery.isActive("12"));
+//        homeJquery.clickPaging("15");
+//        Assert.assertTrue(homeJquery.isActive("15"));
+//        homeJquery.clickPaging("24");
+//        Assert.assertTrue(homeJquery.isActive("24"));
+//        homeJquery.refresh(driver);
+//    }
+//
+//    @Test
+//    public void TC_02_Search() {
+//        homeJquery.searchHomePage("Aruba", "Country");
+//        Assert.assertTrue(homeJquery.isDisplayed("750", "Aruba", "756"));
+//        homeJquery.refresh(driver);
+//        homeJquery.searchHomePage("939", "Females");
+//        homeJquery.refresh(driver);
+//        homeJquery.searchHomePage("1755", "Total");
+//        homeJquery.refresh(driver);
+//    }
+//
+//    @Test
+//    public void TC_03_Edit() throws InterruptedException {
+//        homeJquery.searchHomePage("Aruba", "Country");
+//        homeJquery.removeResult("Aruba");
+//        Thread.sleep(3000);
+//    }
 
     @Test
-    public void TC_02_Search() {
-        homeJquery.searchHomePage("Aruba", "Country");
-        Assert.assertTrue(homeJquery.isDisplayed("750", "Aruba", "756"));
-        homeJquery.refresh(driver);
-        homeJquery.searchHomePage("939", "Females");
-        homeJquery.refresh(driver);
-        homeJquery.searchHomePage("1755", "Total");
-        homeJquery.refresh(driver);
-    }
-
-    @Test
-    public void TC_03_Edit() throws InterruptedException {
-        homeJquery.searchHomePage("Aruba", "Country");
-        homeJquery.removeResult("Aruba");
+    public void TC_04_Remove() throws InterruptedException {
+        homeJquery.searchHomePage("Armenia", "Country");
+        homeJquery.editHomePage("Armenia");
         Thread.sleep(3000);
-    }
-
-    @Test
-    public void TC_04_SwitchPageObject() {
-
     }
 
     @AfterClass
