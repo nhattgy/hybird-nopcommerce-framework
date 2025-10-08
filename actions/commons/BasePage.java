@@ -1,6 +1,7 @@
 package commons;
 
 
+import HomeJqueryUI.HomeJqueryUI;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.Color;
@@ -8,6 +9,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.io.File;
 import java.time.Duration;
 import java.util.List;
 import java.util.Set;
@@ -348,6 +350,24 @@ public class BasePage {
         return new WebDriverWait(driver, Duration.ofSeconds(30))
                 .until(ExpectedConditions.visibilityOfAllElementsLocatedBy(getLocator(locator)));
 
+    }
+    public void uploadMultipleFiles(WebDriver driver, String... fileNames) {
+        // Lấy đường dẫn tuyệt đối tới thư mục chứa file upload
+        String filePath = GlobalConstants.UPLOAD_PATH;
+
+        // Dùng StringBuilder để nối tên file nhanh hơn
+        String fullFileName="";
+
+        // Ghép từng fileName thành 1 chuỗi, cách nhau bởi dấu xuống dòng "\n"
+        for (String file : fileNames) {
+            fullFileName+=filePath+file+"\n";
+        }
+
+        // Trim để bỏ ký tự xuống dòng cuối cùng
+        fullFileName = fullFileName.trim();
+
+        // Gửi chuỗi đường dẫn đầy đủ vào ô upload (input type="file")
+        getElement(driver, HomeJqueryUI.INPUT_UPLOAD).sendKeys(fullFileName);
     }
 
     public void waitForElementSelected(WebDriver driver, String locator) {

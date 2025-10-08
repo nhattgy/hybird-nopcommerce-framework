@@ -1,8 +1,7 @@
-package com.nopcommerce.user;
+package com.nopcommerce.jquery;
 
 import commons.BaseTest;
 import org.openqa.selenium.WebDriver;
-import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
