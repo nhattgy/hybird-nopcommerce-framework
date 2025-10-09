@@ -370,9 +370,13 @@ public class BasePage {
         getElement(driver, HomeJqueryUI.INPUT_UPLOAD).sendKeys(fullFileName);
     }
 
-    public void waitForElementSelected(WebDriver driver, String locator) {
-        new WebDriverWait(driver, Duration.ofSeconds(30)).until(ExpectedConditions.elementToBeSelected(getElement(driver, locator)));
-    }
+   public void waitForElementSelected(WebDriver driver, String locator, String... restParameter) {
+    new WebDriverWait(driver, Duration.ofSeconds(30)).until(d ->
+        new Select(getElement(driver, castParameter(locator, restParameter)))
+            .getFirstSelectedOption()
+            .isSelected()
+    );
+}
 
     public void waitForElementClickable(WebDriver driver, String locator) {
         new WebDriverWait(driver, Duration.ofSeconds(30)).until(ExpectedConditions.elementToBeClickable(getLocator(locator)));
